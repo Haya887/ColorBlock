@@ -1,0 +1,5 @@
+{
+  "name": "ColorBlock",
+  "description": "A vibrant 9x9 grid puzzle game where you place colorful blocks, clear adjacent colors, and aim for high scores.",
+  "requestFramePermissions": []
+}
