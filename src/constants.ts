@@ -1,6 +1,6 @@
 import { Color, BlockShape } from './types';
 
-export const GRID_SIZE = 8;
+export const GRID_SIZE = 9;
 
 export const COLORS: Color[] = ['red', 'blue', 'yellow', 'green'];
 
@@ -46,7 +46,16 @@ export const SHAPES: number[][][] = [
 ];
 
 export const generateRandomBlock = (): BlockShape => {
-  const shapeIndex = Math.floor(Math.random() * SHAPES.length);
+  const weightedIndices: number[] = [];
+  for (let i = 0; i < SHAPES.length; i++) {
+    // 5個以上のセルを持つ形状を「複雑」とみなし、出現率を少し下げる（通常10に対し6）
+    const weight = SHAPES[i].length >= 5 ? 6 : 10;
+    for (let w = 0; w < weight; w++) {
+      weightedIndices.push(i);
+    }
+  }
+
+  const shapeIndex = weightedIndices[Math.floor(Math.random() * weightedIndices.length)];
   const shape = SHAPES[shapeIndex];
   
   const baseColor = COLORS[Math.floor(Math.random() * COLORS.length)];

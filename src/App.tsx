@@ -9,7 +9,7 @@ import { Settings, RotateCcw, Volume2, VolumeX, Smartphone, Trophy, X } from 'lu
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Color, BlockShape, GameState } from './types';
-import { GRID_SIZE, COLOR_MAP, generateRandomBlock } from './constants';
+import { GRID_SIZE, COLOR_MAP, COLORS, generateRandomBlock } from './constants';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -659,7 +659,7 @@ export default function App() {
         } : {}}
         transition={{ duration: 0.3 }}
         className={cn(
-          "relative w-full aspect-square max-w-md bg-stone-900 rounded-2xl p-2 grid grid-cols-8 gap-1 shadow-2xl border border-white/10 transition-colors duration-200",
+          "relative w-full aspect-square max-w-md bg-stone-900 rounded-2xl p-2 grid grid-cols-9 gap-1 shadow-2xl border border-white/10 transition-colors duration-200",
           gridFlash && "bg-white/20"
         )}
       >
